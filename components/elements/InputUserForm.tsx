@@ -7,19 +7,15 @@ export const InputUserForm: React.FC = () => {
     const [name, setName] = useState("");
     const { pushUser, loading, error } = useAddUser(); // pushUser 関数を呼び出す
 
-    const handleSubmit = async (e: any) => {
+    // e の型を React.FormEvent<HTMLFormElement> に指定
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault(); // フォームのデフォルト動作を防止
         setName(""); // フォームをリセット
-        e.preventDefault();
         await pushUser(name); // ユーザー追加
     };
 
     return (
         <form onSubmit={handleSubmit} className="text-center">
-            {/* <input
-                value={status}
-                onChange={(event) => setStatus(event.target.value)}
-                disabled={loading} // ローディング中はフォームを無効化
-            /> */}
             <label className="input input-bordered flex items-center gap-2 w-96 mx-auto">
                 <input
                     type="text"

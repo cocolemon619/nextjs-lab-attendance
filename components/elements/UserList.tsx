@@ -4,20 +4,14 @@ import React, { useEffect } from "react";
 import { useAddUser } from "../../features/Hooks/useAddUser";
 
 export const UserList: React.FC = () => {
-    // const { users } = useAddUser(); // ユーザーリストを取得
-    const { users, pushUser, fetchUsers, loading, error } = useAddUser();
+    const { users, fetchUsers } = useAddUser(); // useAddUserから必要な変数だけを取得
+
     useEffect(() => {
-        // console.log(users);
-        fetchUsers()
-    })
+        fetchUsers(); // ユーザー情報を取得
+    }, [fetchUsers]); // fetchUsersを依存配列に追加して、不要な再実行を防ぐ
 
     return (
         <div>
-            {/* <ul>
-                {users.map((user) => (
-                    <li key={user.id} >{user.name}:{user.status}</li>
-                ))}
-            </ul> */}
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
