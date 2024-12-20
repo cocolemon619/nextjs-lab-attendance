@@ -2,25 +2,21 @@
 import React from "react";
 import Header from "@/components/elements/Header";
 import { UserList } from "../components/elements/UserList";  // UserList コンポーネントをインポート
-import { InputUserForm } from "../components/elements/InputUserForm";
+import { InputUserForm } from "@/components/elements/InputUserForm";
 import InputStateBar from "../components/elements/InputStateBar";
+import WelcomeMsg from "@/components/elements/WelcomeMsg";
 
 const Page: React.FC = () => {
   return (
-    <div>
+    <div className="bg-slate-300 min-h-screen">
       <Header />
-      <div className="bg-teal-100 w-screen h-screen flex items-center justify-center">
-        <div className="">
-          <div className="bg-white rounded-lg phone-3 p-10">
-            <UserList />
-            <InputUserForm />
-          </div>
-          <div className="bg-white artboard rounded-lg artboard-horizontal phone-3 my-24">
-            <InputStateBar />
-          </div>
-        </div>
-      </div>
-    </div>
+      <main className="max-w-4xl flex flex-col gap-8 md:gap-16 pt-20 px-5 md:px-10 pb-36 mx-auto text-neutral">
+        <WelcomeMsg />
+        <InputStateBar />
+        <UserList />
+        <InputUserForm />
+      </main >
+    </div >
   );
 };
 

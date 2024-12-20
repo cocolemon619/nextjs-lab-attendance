@@ -11,26 +11,13 @@ export const UserList: React.FC = () => {
     }, [fetchUsers]); // fetchUsersを依存配列に追加して、不要な再実行を防ぐ
 
     return (
-        <div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user) => (
-                            <tr key={user.id}>
-                                <td>{user.name}</td>
-                                <td>{user.status}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {users.map((user) => (
+                <div key={user.id} className="card bg-white shadow-lg w-full flex flex-row justify-between p-8 px-12 md:p-10">
+                    <p className="font-bold text-2xl">{user.name}</p>
+                    <p className="text-xl">{user.status}</p>
+                </div>
+            ))}
         </div>
     );
 };
