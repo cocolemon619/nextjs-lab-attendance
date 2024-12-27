@@ -17,7 +17,6 @@ export default function HeaderClock() {
 
     return (
         <div>
-            {/* <h1>現在時刻:</h1> */}
             <p className="text-neutral-content text-4xl font-bold">{date} {time}</p>
         </div>
     );
