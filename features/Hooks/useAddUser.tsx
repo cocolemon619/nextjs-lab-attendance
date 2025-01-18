@@ -7,10 +7,6 @@ export const useAddUser = () => {
     const [loading, setLoading] = useState<boolean>(false); // ローディング状態
     const [error, setError] = useState<string | null>(null); // エラーメッセージ
 
-    useEffect(() => {
-        fetchUsers(); // 初期ロード時にユーザーをフェッチ
-    }, []);
-
     const fetchUsers = async () => {
         const { data, error } = await supabase.from("users").select("*");
         if (error) {
